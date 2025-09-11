@@ -32,6 +32,9 @@ jobs:
       - name: Run Pint
         run: vendor/bin/pint
 
+      - name: Run PHPStan
+        run: composer phpstan
+
       - name: Format Frontend
         run: npm run format
 
