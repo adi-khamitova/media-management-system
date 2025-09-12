@@ -33,7 +33,7 @@ jobs:
         run: vendor/bin/pint
 
       - name: Lint Php
-        run: phpcs
+        run: ./vendor/bin/phpcs
 
       - name: Run PHPStan
         run: composer phpstan
