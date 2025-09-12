@@ -32,6 +32,9 @@ jobs:
       - name: Run Pint
         run: vendor/bin/pint
 
+      - name: Lint Php
+        run: phpcs
+
       - name: Run PHPStan
         run: composer phpstan
 

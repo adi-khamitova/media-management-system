@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Auth;
 
 use App\Models\User;
@@ -11,7 +13,7 @@ class PasswordConfirmationTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_confirm_password_screen_can_be_rendered()
+    public function testConfirmPasswordScreenCanBeRendered(): void
     {
         $user = User::factory()->create();
 
@@ -20,11 +22,10 @@ class PasswordConfirmationTest extends TestCase
         $response->assertStatus(200);
 
         $response->assertInertia(fn (Assert $page) => $page
-            ->component('auth/ConfirmPassword')
-        );
+            ->component('auth/ConfirmPassword'));
     }
 
-    public function test_password_confirmation_requires_authentication()
+    public function testPasswordConfirmationRequiresAuthentication(): void
     {
         $response = $this->get(route('password.confirm'));
 

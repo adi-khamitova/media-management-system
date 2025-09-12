@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Auth;
 
 use App\Models\User;
@@ -12,7 +14,7 @@ class VerificationNotificationTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_sends_verification_notification(): void
+    public function testSendsVerificationNotification(): void
     {
         Notification::fake();
 
@@ -25,7 +27,7 @@ class VerificationNotificationTest extends TestCase
         Notification::assertSentTo($user, VerifyEmail::class);
     }
 
-    public function test_does_not_send_verification_notification_if_email_is_verified(): void
+    public function testDoesNotSendVerificationNotificationIfEmailIsVerified(): void
     {
         Notification::fake();
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Settings;
 
 use App\Models\User;
@@ -12,7 +14,7 @@ class TwoFactorAuthenticationTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_two_factor_settings_page_can_be_rendered()
+    public function testTwoFactorSettingsPageCanBeRendered(): void
     {
         if (! Features::canManageTwoFactorAuthentication()) {
             $this->markTestSkipped('Two-factor authentication is not enabled.');
@@ -30,11 +32,10 @@ class TwoFactorAuthenticationTest extends TestCase
             ->get(route('two-factor.show'))
             ->assertInertia(fn (Assert $page) => $page
                 ->component('settings/TwoFactor')
-                ->where('twoFactorEnabled', false)
-            );
+                ->where('twoFactorEnabled', false));
     }
 
-    public function test_two_factor_settings_page_requires_password_confirmation_when_enabled()
+    public function testTwoFactorSettingsPageRequiresPasswordConfirmationWhenEnabled(): void
     {
         if (! Features::canManageTwoFactorAuthentication()) {
             $this->markTestSkipped('Two-factor authentication is not enabled.');
@@ -53,7 +54,7 @@ class TwoFactorAuthenticationTest extends TestCase
         $response->assertRedirect(route('password.confirm'));
     }
 
-    public function test_two_factor_settings_page_does_not_requires_password_confirmation_when_disabled()
+    public function testTwoFactorSettingsPageDoesNotRequiresPasswordConfirmationWhenDisabled(): void
     {
         if (! Features::canManageTwoFactorAuthentication()) {
             $this->markTestSkipped('Two-factor authentication is not enabled.');
@@ -70,11 +71,10 @@ class TwoFactorAuthenticationTest extends TestCase
             ->get(route('two-factor.show'))
             ->assertOk()
             ->assertInertia(fn (Assert $page) => $page
-                ->component('settings/TwoFactor')
-            );
+                ->component('settings/TwoFactor'));
     }
 
-    public function test_two_factor_settings_page_returns_forbidden_response_when_two_factor_is_disabled()
+    public function testTwoFactorSettingsPageReturnsForbiddenResponseWhenTwoFactorIsDisabled(): void
     {
         if (! Features::canManageTwoFactorAuthentication()) {
             $this->markTestSkipped('Two-factor authentication is not enabled.');

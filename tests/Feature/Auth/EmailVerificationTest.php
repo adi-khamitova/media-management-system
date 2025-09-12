@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Auth;
 
 use App\Models\User;
@@ -13,7 +15,7 @@ class EmailVerificationTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_email_verification_screen_can_be_rendered()
+    public function testEmailVerificationScreenCanBeRendered(): void
     {
         $user = User::factory()->unverified()->create();
 
@@ -22,7 +24,7 @@ class EmailVerificationTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_email_can_be_verified()
+    public function testEmailCanBeVerified(): void
     {
         $user = User::factory()->unverified()->create();
 
@@ -41,7 +43,7 @@ class EmailVerificationTest extends TestCase
         $response->assertRedirect(route('dashboard', absolute: false).'?verified=1');
     }
 
-    public function test_email_is_not_verified_with_invalid_hash()
+    public function testEmailIsNotVerifiedWithInvalidHash(): void
     {
         $user = User::factory()->unverified()->create();
 
@@ -59,7 +61,7 @@ class EmailVerificationTest extends TestCase
         $this->assertFalse($user->fresh()->hasVerifiedEmail());
     }
 
-    public function test_email_is_not_verified_with_invalid_user_id(): void
+    public function testEmailIsNotVerifiedWithInvalidUserId(): void
     {
         $user = User::factory()->unverified()->create();
 
@@ -77,7 +79,7 @@ class EmailVerificationTest extends TestCase
         $this->assertFalse($user->fresh()->hasVerifiedEmail());
     }
 
-    public function test_verified_user_is_redirected_to_dashboard_from_verification_prompt(): void
+    public function testVerifiedUserIsRedirectedToDashboardFromVerificationPrompt(): void
     {
         $user = User::factory()->create();
 
@@ -89,7 +91,7 @@ class EmailVerificationTest extends TestCase
         $response->assertRedirect(route('dashboard', absolute: false));
     }
 
-    public function test_already_verified_user_visiting_verification_link_is_redirected_without_firing_event_again(): void
+    public function testAlreadyVerifiedUserVisitingVerificationLinkIsRedirectedWithoutFiringEventAgain(): void
     {
         $user = User::factory()->create();
 
