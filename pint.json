@@ -1,0 +1,18 @@
+{
+    "preset": "laravel",
+    "rules": {
+        "declare_strict_types": true,
+        "align_multiline_comment": true,
+        "array_indentation": true,
+        "blank_line_after_namespace": true,
+        "blank_line_after_opening_tag": true,
+        "combine_consecutive_issets": true,
+        "combine_consecutive_unsets": true,
+        "concat_space": true,
+        "declare_parentheses": true,
+        "fully_qualified_strict_types": true,
+        "constant_case": true,
+        "control_structure_braces": true,
+        "php_unit_method_casing": {"case": "camel_case"}
+    }
+}
