@@ -5,7 +5,7 @@
 
       <div class="video-background">
       <video autoplay muted loop id="Myvideo">
-        <source src="@/video.mp4" type="video/mp4">
+        <source src="@/assets/video.mp4" type="video/mp4">
       </video>
     </div>
 
@@ -41,8 +41,8 @@
               </div>
             </label>
 
-            <!-- <a href="/carjong" class="submit-button">Играть</a> -->
-            <router-link to="/carjong">Играть</router-link>
+            <a href="/game" class="submit-button">Играть</a>
+            <!-- <router-link to="/game">Играть</router-link> -->
           </form>
         </div>
       </div>
