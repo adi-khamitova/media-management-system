@@ -90,13 +90,6 @@ interface LayoutItem {
 const page = usePage<any>()
 console.log('Все данные с бэкенда:', page.props)
 
-// Получаем данные из пропсов
-const userMove = computed(() => {
-  const data = page.props.userMove || {}
-  console.log('UserMove данные:', data)
-  return data
-})
-
 const gameId = computed(() => {
   const id = page.props.gameId
   console.log('GameId:', id)
@@ -144,8 +137,8 @@ const initializeTiles = () => {
 //   const screenWidth = window.innerWidth
 
   // Получаем layout из бэкенда
-  const layout: LayoutItem[] = userMove.value?.layout || []
-  console.log('Layout из бэкенда:', layout)
+  const layout: LayoutItem[] = props.layout || []
+  console.log('Layout из бэкенда:', props.layout)
   console.log('Количество плиток:', layout.length)
 
   // Если layout пустой, создаем тестовые плитки
@@ -182,24 +175,6 @@ const initializeTiles = () => {
   updateTilePositions()
 }
 
-// const createTestTiles = () => {
-//   // Создаем простые тестовые плитки если layout пустой
-//   for (let i = 0; i < 20; i++) {
-//     tiles.value.push({
-//       id: i + 1,
-//       x: Math.floor(i / 4),
-//       y: i % 4,
-//       z: 0,
-//       carId: i % 4,
-//       matched: false,
-//       style: {},
-//       ad: i < 2, // первые 2 плитки - рекламные
-//       clickable: true
-//     })
-//   }
-
-//   updateTilePositions()
-// }
 
 const addAdTiles = () => {
   // Находим плитки для замены на рекламу (например, первые 2 плитки с одинаковым carId)
@@ -240,20 +215,20 @@ const updateTilePositions = () => {
   const screenWidth = window.innerWidth
 
   tiles.value.forEach(tile => {
-    // Преобразуем координаты из бэкенда в пиксели
-    tile.x = screenWidth / 2 - 3 * TILE_WIDTH + tile.x * TILE_WIDTH
-    tile.y = Y_OFFSET_FIRST_LEVEL + tile.y * TILE_HEIGHT + tile.z * 5 // небольшой сдвиг по Z
+    const visualX = screenWidth / 2 - 3 * TILE_WIDTH + tile.y * TILE_WIDTH
+    const visualY = Y_OFFSET_FIRST_LEVEL + tile.x * TILE_HEIGHT + tile.z * 5
 
     tile.style = {
       ...tile.style,
-      left: `${tile.x}px`,
-      top: `${tile.y}px`,
+      left: `${visualX}px`,
+      top: `${visualY}px`,
       transition: "all 0.4s ease-out",
       zIndex: tile.z.toString(),
       opacity: tile.clickable === false ? 0.5 : 1
     }
   })
 }
+
 
 const handleTileClick = async (tile: Tile) => {
   // Проверяем, можно ли кликать по плитке

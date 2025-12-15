@@ -47,6 +47,10 @@ import AdModal from '@/components/AdModal.vue'
 import carAtom from '@/assets/car_atom.png'
 import tilesJson from '@/pages/tiles.json'
 
+const props = defineProps<{
+    layout: any;
+}>()
+
 // Типы
 interface CarDetails {
   brand: string

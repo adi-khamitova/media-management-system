@@ -49,11 +49,9 @@
     </div>
   </template>
 
-  <script lang="ts">
+  <script setup lang="ts">
   import { ref} from 'vue';
 
-  export default {
-    setup() {
       const showModal = ref(false);
       const settings = ref({
         level: "1",
@@ -70,10 +68,6 @@
         showModal.value = false;
       };
 
-
-      return { showModal, settings, closeModal, startGame };
-    },
-  };
   </script>
 
   <style>
