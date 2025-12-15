@@ -62,6 +62,7 @@
 
 <script setup lang="ts">
 import { ref, watch, onMounted, onUnmounted, nextTick } from 'vue'
+import adImage from '@/assets/kamaz.png'
 
 // Props
 interface Props {
@@ -83,7 +84,7 @@ const imageError = ref(false)
 const isVisible = ref(props.visible)
 
 // Константы
-const AD_IMAGE_URL = 'https://i.ibb.co/VxL3KY8/Screenshot-2024-11-30-at-20-27-30.png'
+const AD_IMAGE_URL = adImage
 const AD_REDIRECT_URL = 'https://example.com/ad' // Замените на реальную ссылку
 
 // Computed
@@ -181,7 +182,7 @@ enableBodyScroll()
 }
 
 .ad-modal-content {
-  background: linear-gradient(135deg, #e2e659 0%, #f7f8a1 100%);
+  background: linear-gradient(135deg, #0063bf 0%, #000bab 100%);
   padding: 30px;
   border-radius: 20px;
   box-shadow:
@@ -324,7 +325,7 @@ enableBodyScroll()
   width: 40px;
   height: 40px;
   border: 4px solid rgba(226, 230, 89, 0.3);
-  border-top-color: #e2e659;
+  border-top-color: #0035e1;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }

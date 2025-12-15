@@ -10,12 +10,12 @@
               <path d="M9 17L15 12L9 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
-          <h1 class="logo-text">Mahjong Cars</h1>
+          <h1 class="logo-text">Tatjong</h1>
         </div>
 
         <div class="hero-section">
-          <h2>Собери все автомобили!</h2>
-          <p>Увлекательная игра в маджонг с автомобильной тематикой.</p>
+          <h2>Собери все татарские символы!</h2>
+          <p>Увлекательная онлайн‑игра с татарской культурой!</p>
 
           <div class="features">
             <div class="feature">
@@ -28,7 +28,7 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                 <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
               </svg>
-              <span>Коллекция авто</span>
+              <span>Коллекция символов Татарстана</span>
             </div>
             <div class="feature">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">

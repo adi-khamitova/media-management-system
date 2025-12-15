@@ -15,9 +15,26 @@
     <div v-else class="fallback-text">Mahjong Tile</div>
   </div>
 </template>
-
+/Users/adelahamitova/Downloads/New Folder With Items/11.png /Users/adelahamitova/Downloads/New Folder With Items/12.png
 <script setup lang="ts">
 import { ref, computed} from 'vue'
+import logoImage from '@/assets/logo.png'
+import im1 from '@/assets/1.png'
+import im2 from '@/assets/2.png'
+import im3 from '@/assets/3.png'
+import im4 from '@/assets/4.png'
+import im5 from '@/assets/5.png'
+import im6 from '@/assets/6.png'
+import im7 from '@/assets/7.png'
+import im8 from '@/assets/8.png'
+import im9 from '@/assets/9.png'
+import im10 from '@/assets/10.png'
+import im11 from '@/assets/11.png'
+import im12 from '@/assets/12.png'
+import im13 from '@/assets/13.png'
+import im14 from '@/assets/14.png'
+import im15 from '@/assets/15.png'
+
 
 // Интерфейсы
 interface Position {
@@ -57,7 +74,7 @@ const tileStyle = computed(() => {
     top: `${props.position.y}px`,
     zIndex: props.position.z || 1,
     position: 'absolute',
-    backgroundColor: props.carId === -100 ? '#e3e557' : '#FFFFFF',
+    backgroundColor: props.carId === -100 ? '#000bab' : '#FFFFFF',
     width: '60px',
     height: '80px',
     borderRadius: '10px',
@@ -74,11 +91,22 @@ const tileStyle = computed(() => {
 
 const tileImage = computed(() => {
   const imageMap: Record<number, string> = {
-    1: 'https://i.postimg.cc/VNs23s58/audi.png',
-    2: 'https://i.postimg.cc/pTGpqRcm/bmw.png',
-    3: 'https://i.postimg.cc/9fc02rv4/porsche.png',
-    4: 'https://i.postimg.cc/90wFbTqk/vw.png',
-    [-100]: 'https://i.ibb.co/71jdd57/Untitled-Project-22.jpg'
+    1: im1,
+    2: im2,
+    3: im3,
+    4: im4,
+    5: im5,
+    6: im6,
+    7: im7,
+    8: im8,
+    9: im9,
+    10: im10,
+    11: im11,
+    12: im12,
+    13: im13,
+    14: im14,
+    15: im15,
+    [-100]: logoImage
   }
 
   return imageMap[props.carId] || ''
@@ -104,8 +132,8 @@ const imageLoaded = () => {
 
 <style scoped>
 .tile {
-  width: 60px;
-  height: 80px;
+  width: 90px!important;
+  height: 120px!important;
   border-radius: 10px;
   position: absolute;
   display: flex;
