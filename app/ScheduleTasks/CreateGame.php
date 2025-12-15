@@ -138,7 +138,7 @@ class CreateGame
                     break;
                 }
                 $coords[$i][] = $j;
-                $coords[$i + 1] = $j;
+                $coords[$i + 1][] = $j;
                 $i += 2;
             }
         }

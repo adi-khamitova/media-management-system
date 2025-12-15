@@ -47,6 +47,12 @@ import CarInfo from '@/components/CarInfo.vue'
 import AdModal from '@/components/AdModal.vue'
 import carAtom from '@/assets/car_atom.png'
 
+const props = defineProps<{
+    layout: any;
+}>()
+
+console.log(props)
+
 // Типы
 interface CarDetails {
   brand: string

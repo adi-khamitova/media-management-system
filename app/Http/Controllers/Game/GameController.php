@@ -34,7 +34,7 @@ class GameController extends Controller
             'layout' => $game->layout,
         ]);
 
-        return Inertia::render('game/Index', [$userMove->toArray(), 'gameId' => $game->getKey()]);
+        return Inertia::render('game/Index', [...$userMove->toArray(), 'gameId' => $game->getKey()]);
     }
 
     public function move(Game $game, Request $request): RedirectResponse|Redirector|JsonResponse
